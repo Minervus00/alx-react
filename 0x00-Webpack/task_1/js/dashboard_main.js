@@ -1,4 +1,7 @@
 import $ from "jquery";
+const _ = require("lodash");
+
+let count = 0;
 
 $(function() {
   $('body').append('<p>Holberton Dashboard</p>');
@@ -8,7 +11,6 @@ $(function() {
   $('body').append('<p>Copyright - Holberton School</p>');
 })
 
-let count = 0;
 function updateCounter() {
   count++;
   $('#count').html(`${count} clicks on the button`);
