@@ -1,0 +1,48 @@
+:root {
+  --bg-color: rgb(221, 56, 84);
+  --border: 5px solid var(--bg-color);
+  margin: 10px;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  font-size: 18px;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: bold;
+  font-size: 25px;
+  border-bottom: var(--border);
+  color: var(--bg-color);
+}
+
+.App-header img {
+  width: 240px;
+  height: 230px;
+}
+
+.App-body {
+  flex-grow: 4;
+  margin-top: 40px;
+  margin-left: 60px;
+}
+
+.App-footer {
+  border-top: var(--border);
+  text-align: center;
+  margin-top: 360px;
+  font-style: italic;
+}
