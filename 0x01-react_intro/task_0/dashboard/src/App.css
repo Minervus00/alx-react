@@ -10,10 +10,12 @@ body {
 p {
   font-size: 18px;
 }
+
 .App {
   display: flex;
   flex-direction: column;
   color: black;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .App-header {
@@ -21,6 +23,7 @@ p {
   flex-direction: row;
   align-items: center;
   font-weight: bold;
+  font-size: 25px;
   border-bottom: var(--border);
   color: var(--bg-color);
 }
@@ -39,5 +42,6 @@ p {
 .App-footer {
   border-top: var(--border);
   text-align: center;
-  margin-top: 350px;
+  margin-top: 360px;
+  font-style: italic;
 }
