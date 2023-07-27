@@ -38,7 +38,7 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://Minervus00.github.io/holberton_dashboard",
+  "homepage": "https://minervus00.github.io/holberton_dashboard",
   "devDependencies": {
     "gh-pages": "^5.0.0"
   }
