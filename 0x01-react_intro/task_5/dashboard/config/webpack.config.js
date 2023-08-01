@@ -6,16 +6,20 @@ module.exports = {
     main: path.relative(__dirname, './src/index.js')
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js'
   },
-  plugins: [new HtmlWebpackPlugin()],
+  plugins: [new HtmlWebpackPlugin({
+    name: "index.html",
+    inject: false,
+    template: "./dist/index.html",
+  })],
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    hot: true,
-    contentBase: path.resolve(__dirname, "./dist"),
+    static: "./dist",
     compress: true,
+    open: true,
+    hot: true,
     port: 8564,
   },
   performance: {
@@ -30,7 +34,7 @@ module.exports = {
       },
       { 
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-        type: 'asset/resource',
+        // type: 'asset/resource',
         use: [
           'file-loader',
           {
@@ -41,6 +45,11 @@ module.exports = {
             }
           },
         ]
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
       },
     ]
   }
