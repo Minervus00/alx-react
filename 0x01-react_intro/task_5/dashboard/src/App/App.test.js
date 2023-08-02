@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import App from './App.js';
+import App from './App';
 
 it('renders without crashing', () => {
   expect(shallow(<App />)).toBeDefined();

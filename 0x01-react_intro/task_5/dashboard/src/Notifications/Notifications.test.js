@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import Notifications from './Notifications.js';
+import Notifications from './Notifications';
 
 it('renders without crashing', () => {
   const wrapper = shallow(<Notifications />);
