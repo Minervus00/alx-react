@@ -1,0 +1,21 @@
+.Notifications {
+	padding: 5px;
+	border: dashed 2px red;
+	font-size: 18px;
+}
+
+li[data-priority='default'] {
+	color: blue;
+}
+
+li[data-priority='urgent'] {
+	color: red;
+}
+
+li:last-of-type {
+	color: red;
+}
+
+button img {
+	transform: scale(0.5);
+}
