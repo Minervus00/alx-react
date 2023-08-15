@@ -5,7 +5,7 @@ export function getListObject(array) {
 }
 
 export function addElementToList(list, element) {
-  return list.insert(list.size, element);
+  return list.push(element);
 }
 
 // console.log(addElementToList(getListObject(['Guillaume', 'Salva', 'Julien']), 'Barbier'));
