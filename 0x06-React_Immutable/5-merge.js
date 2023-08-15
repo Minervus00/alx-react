@@ -1,4 +1,4 @@
-import { List, Map } from "immutable";
+import { List, Map } from 'immutable';
 
 function concatElements(page1, page2) {
   return List(page1).merge(page2);
