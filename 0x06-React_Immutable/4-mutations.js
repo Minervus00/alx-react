@@ -9,7 +9,6 @@ export const map = Map({
   6: 'Lucas',
 });
 
-export const map2 = map.set('2', 'Benjamin').set('4', 'Olivier');
-
-// console.log(map2.get('2'));
-// console.log(map2.get('4'));
+export const map2 = map.withMutations(item => {
+  item.set('2', 'Benjamin').set('4', 'Olivier')
+});
