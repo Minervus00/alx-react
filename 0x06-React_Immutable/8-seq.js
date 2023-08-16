@@ -1,8 +1,8 @@
 import { Seq } from 'immutable';
 
-export default function printBestStudents(oject) {
-  const lazySeq = Seq(oject);
-  const bestJS = lazySeq.filter(student => student.score >= 70).toJS();
+export default function printBestStudents(object) {
+  const lazySeq = Seq(object);
+  const bestJS = lazySeq.filter(student => student.score > 70).toJS();
   
   function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
