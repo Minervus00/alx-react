@@ -1,7 +1,7 @@
-import { Map } from "immutable";
+import { Map } from 'immutable';
 
 function mergeDeeplyElements(page1, page2) {
-
+  return Map(page1).mergeDeep(page2);
 }
 
 const page1 = {
@@ -26,4 +26,4 @@ const page2 = {
   },
 };
 
-mergeDeeplyElements(page1, page2).toJS();
+// console.log(mergeDeeplyElements(page1, page2).toJS());
