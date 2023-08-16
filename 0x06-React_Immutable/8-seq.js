@@ -13,18 +13,3 @@ export default function printBestStudents(grades) {
   })
   console.log(bestJS);
 }
-
-// const grad = {
-//   1: {
-//     score: 99,
-//     firstName: 'guillaume',
-//     lastName: 'salva',
-//   },
-//   2: {
-//     score: 109,
-//     firstName: 'julien',
-//     lastName: 'barbier',
-//   }
-// };
-
-// printBestStudents(grad);
