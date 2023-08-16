@@ -1,7 +1,5 @@
 import { Seq } from 'immutable';
 
-
-
 export default function printBestStudents(grades) {
   const lazySeq = Seq(grades);
   const bestJS = lazySeq.filter(student => student.score >= 70).toJS();
