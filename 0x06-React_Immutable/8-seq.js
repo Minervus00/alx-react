@@ -7,7 +7,6 @@ function capitalize(string) {
 export default function printBestStudents(grades) {
   const lazySeq = Seq(Map(grades));
   const bestJS = lazySeq.filter(student => student.score >= 70).toJS();
-  console.log(bestJS['1']['firstName']);
   Object.keys(bestJS).forEach(key => {
     bestJS[key]['firstName'] = capitalize(bestJS[key]['firstName']);
     bestJS[key]['lastName'] = capitalize(bestJS[key]['lastName']);
