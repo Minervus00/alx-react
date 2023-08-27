@@ -1,5 +1,4 @@
-import { FETCH_COURSE_SUCCESS } from "./courseActionTypes";
-import { SELECT_COURSE, UNSELECT_COURSE } from "./courseActionTypes";
+import { FETCH_COURSE_SUCCESS, SELECT_COURSE, UNSELECT_COURSE } from "../actions/courseActionTypes";
 
 export function courseReducer(state = [], action) {
   switch (action.type) {
