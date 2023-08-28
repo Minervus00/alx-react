@@ -1,5 +1,3 @@
-import Map from 'immutable';
-
 export const filterTypeSelected = (state) => state.get('filter');
 export const getNotifications = (state) => Object.values(state.get('notifications'));
 
