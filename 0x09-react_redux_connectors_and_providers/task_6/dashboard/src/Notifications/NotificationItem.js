@@ -10,7 +10,7 @@ class NotificationItem extends React.Component {
   render() {
     if (this.props.html) {
       return (<li
-        onClick={() => {this.props.markAsRead(this.props.id)}}
+        onClick={() => this.props.markAsRead(this.props.id)}
         data-notification-type={this.props.type}
         dangerouslySetInnerHTML={this.props.html} 
         className={this.props.type === "urgent" ? css(styles.urgentColor, styles.small) : css(styles.defaultColor, styles.small)}
@@ -18,7 +18,7 @@ class NotificationItem extends React.Component {
       );
     } else if (this.props.type && this.props.value) {
       return (<li
-        onClick={() => {this.props.markAsRead(this.props.id)}}
+        onClick={() => this.props.markAsRead(this.props.id)}
         data-notification-type={this.props.type}
         className={this.props.type === "urgent" ? css(styles.urgentColor, styles.small) : css(styles.defaultColor, styles.small)}
         >

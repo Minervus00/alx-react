@@ -3,12 +3,13 @@ import {
   SET_LOADING_STATE, FETCH_NOTIFICATIONS_SUCCESS
 } from "./notificationActionTypes";
 
-export function markAsAread(index) {
+export function markAsAread(id) {
   return {
     type: MARK_AS_READ,
-    index
+    id,
   };
 }
+export const boundMarkAsAread = (id) => dispatch(markAsAread(id));
 
 export function setNotificationFilter(filter) {
   return {
@@ -16,6 +17,7 @@ export function setNotificationFilter(filter) {
     filter
   };
 }
+export const boundSetNotifFilter = (filter) => dispatch(setNotificationFilter(filter));
 
 export function setLoadingState(loading) {
   return {
@@ -41,6 +43,3 @@ export function fetchNotifications() {
       .finally(() => dispatch(setLoadingState(false)));
   };
 }
-
-export const boundMarkAsAread = index => dispatchEvent(markAsAread(index));
-export const boundSetNotifFilter = filter => dispatchEvent(setNotificationFilter(filter));

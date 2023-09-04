@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import close from "../assets/close-icon.png";
 import NotificationItem from "./NotificationItem";
 import { StyleSheet, css } from "aphrodite";
-import { fetchNotifications } from "../actions/notificationActionCreators";
+import { fetchNotifications, markAsAread } from "../actions/notificationActionCreators";
 import { connect } from 'react-redux';
+import { getUnreadNotifications } from "../selectors/notificationSelector";
 
 export class Notifications extends React.PureComponent {
   constructor(props) {
@@ -29,12 +30,12 @@ export class Notifications extends React.PureComponent {
             >
               <img className={css(styles.buttonImg)} src={ close } alt='close-icon' />
             </button>
-            {this.props.listNotifications === null && <p>No new notification for now</p>}
-            {this.props.listNotifications &&
+            {this.props.listNotifications.length === 0 && <p>No new notification for now</p>}
+            {this.props.listNotifications.length > 0 &&
               <>
                 <p>Here is the list of notifications</p>
                 <ul className={css(styles.ulStyle)}>
-                  {Object.values(this.props.listNotifications).map((notif) => 
+                  {this.props.listNotifications.map((notif) => 
                     <NotificationItem 
                       key={notif.guid}
                       id={notif.guid}
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
 
 Notifications.defaultProps = {
   displayDrawer: false,
-  listNotifications: null,
+  listNotifications: [],
   handleDisplayDrawer: () => {console.log('open notif');},
   handleHideDrawer: () => console.log('Close button has been clicked'),
   markNotificationAsRead: (id) => console.log(`Notification ${id} has been marked as read`),
@@ -127,20 +128,22 @@ Notifications.defaultProps = {
 
 Notifications.propTypes = {
   displayDrawer: PropTypes.bool,
-  listNotifications: PropTypes.object,
+  listNotifications: PropTypes.array,
   handleDisplayDrawer: PropTypes.func,
   handleHideDrawer: PropTypes.func,
   markNotificationAsRead: PropTypes.func,
 };
 
 export const mapStateToProps = (state) => {
+  const unreadNotifs = getUnreadNotifications(state);
   return {
-    listNotifications: state.notifications.get('messages'),
+    listNotifications: unreadNotifs,
   };
 };
 
 const mapDispatchToProps = {
   fetchNotifications,
+  markNotificationAsRead: markAsAread,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notifications);

@@ -21,11 +21,11 @@ export function notificationReducer(state = Map(initialNotifState), action) {
       return state.mergeDeep(normlizdData);
 
     case MARK_AS_READ:
-      return setIn(state, ['notifications', action.index.toString(), 'isRead'], true);
+      return setIn(state, ['messages', action.id, 'isRead'], true);
 
     case SET_TYPE_FILTER:
       return set(state, ['filter'], action.filter);
-    
+
     case SET_LOADING_STATE:
       return set(state, ['loading'], action.loading);
 
