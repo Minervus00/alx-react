@@ -14,7 +14,7 @@ export const boundMarkAsAread = (id) => dispatch(markAsAread(id));
 export function setNotificationFilter(filter) {
   return {
     type: SET_TYPE_FILTER,
-    filter
+    filter,
   };
 }
 export const boundSetNotifFilter = (filter) => dispatch(setNotificationFilter(filter));

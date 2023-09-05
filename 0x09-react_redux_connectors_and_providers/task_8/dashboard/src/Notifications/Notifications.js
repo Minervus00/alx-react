@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import close from "../assets/close-icon.png";
 import NotificationItem from "./NotificationItem";
 import { StyleSheet, css } from "aphrodite";
-import { fetchNotifications, markAsAread } from "../actions/notificationActionCreators";
+import { fetchNotifications, markAsAread, setNotificationFilter } from "../actions/notificationActionCreators";
 import { connect } from 'react-redux';
-import { getUnreadNotifications } from "../selectors/notificationSelector";
+import { getUnreadNotificationsByType, getUnreadNotifications } from "../selectors/notificationSelector";
 
 export class Notifications extends React.PureComponent {
   constructor(props) {
@@ -33,7 +33,17 @@ export class Notifications extends React.PureComponent {
             {this.props.listNotifications.length === 0 && <p>No new notification for now</p>}
             {this.props.listNotifications.length > 0 &&
               <>
-                <p>Here is the list of notifications</p>
+                <p style={{marginBottom: '5px'}}>Here is the list of notifications</p>
+                <p style={{marginTop: '0px'}}>
+                  <button
+                    style={{margin: '5px', width: '30px', height:'20px', color: 'red'}}
+                    onClick={() => this.props.setNotificationFilter('URGENT')}
+                  >!!</button>
+                  <button
+                    style={{margin: '5px', width: '30px', height:'25px'}}
+                    onClick={() => this.props.setNotificationFilter('DEFAULT')}
+                  >💠</button>
+                </p>
                 <ul className={css(styles.ulStyle)}>
                   {this.props.listNotifications.map((notif) => 
                     <NotificationItem 
@@ -135,7 +145,7 @@ Notifications.propTypes = {
 };
 
 export const mapStateToProps = (state) => {
-  const unreadNotifs = getUnreadNotifications(state);
+  const unreadNotifs = getUnreadNotificationsByType(state);
   return {
     listNotifications: unreadNotifs,
   };
@@ -144,6 +154,7 @@ export const mapStateToProps = (state) => {
 const mapDispatchToProps = {
   fetchNotifications,
   markNotificationAsRead: markAsAread,
+  setNotificationFilter,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Notifications);
