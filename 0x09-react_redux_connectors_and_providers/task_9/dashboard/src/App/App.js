@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
-import Notifications from '../Notifications/Notifications';
+import NotificationsContainer from '../Notifications/NotificationsContainer';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
@@ -47,10 +47,10 @@ export class App extends React.Component {
     return (
       <>
         <div id="root-notifications">
-          <Notifications
-          displayDrawer={this.props.displayDrawer}
-          handleDisplayDrawer={this.props.displayNotificationDrawer}
-          handleHideDrawer={this.props.hideNotificationDrawer}
+          <NotificationsContainer
+            displayDrawer={this.props.displayDrawer}
+            handleDisplayDrawer={this.props.displayNotificationDrawer}
+            handleHideDrawer={this.props.hideNotificationDrawer}
           />
         </div>
 
